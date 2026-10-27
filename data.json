@@ -1,9 +1,21 @@
 {
-  "channel": "Crónicas Ocultas España",
-  "generated": "2026-10-27T19:42:25+00:00",
+  "app": "FacelessStudio",
+  "generated": "2026-10-27T21:15:18+00:00",
+  "channels": [
+    {
+      "id": "velatrama",
+      "name": "Velatrama",
+      "handle": "",
+      "description": "Historias que se cuentan a media luz.",
+      "color": "#e8a54b",
+      "logo": "media/canales/velatrama/logo.webp?v=1793135716",
+      "banner": "media/canales/velatrama/banner.webp?v=1793135716"
+    }
+  ],
   "videos": [
     {
       "slug": "el_santo_caliz_de_valencia",
+      "channel": "velatrama",
       "title": "¿Es este el Santo Grial? 😱 El Santo Cáliz de Valencia",
       "description": [
         "En la catedral de Valencia se guarda una copa de ágata de hace unos dos mil años que la tradición identifica con el cáliz de la Última Cena. ¿Reliquia auténtica o leyenda?",
@@ -49,10 +61,12 @@
       "video": "media/el_santo_caliz_de_valencia/video.mp4?v=1793130095",
       "poster": "media/el_santo_caliz_de_valencia/poster.webp?v=1793130095",
       "duration": 46.6,
-      "size": 18060737
+      "size": 18060737,
+      "added": 1793123519
     },
     {
       "slug": "el_dolmen_de_menga",
+      "channel": "velatrama",
       "title": "Una piedra de 150 toneladas hace 6.000 años 😱 El Dolmen de Menga",
       "description": [
         "El dolmen de Menga, en Antequera, tiene bloques de unas 150 toneladas colocados hace casi 6.000 años y una entrada orientada hacia la Peña de los Enamorados. ¿Cómo lo construyeron?",
@@ -93,10 +107,12 @@
       "video": "media/el_dolmen_de_menga/video.mp4?v=1793130077",
       "poster": "media/el_dolmen_de_menga/poster.webp?v=1793130077",
       "duration": 55.1,
-      "size": 21007933
+      "size": 21007933,
+      "added": 1793122050
     },
     {
       "slug": "dama_de_elche",
+      "channel": "velatrama",
       "title": "Esta mujer lleva 2.300 años mirándote 😱 La Dama de Elche",
       "description": [
         "¿Quién fue realmente la Dama de Elche? Un busto íbero hallado en 1897, vendido al Louvre y devuelto a España en 1941... con un hueco secreto en la espalda.",
@@ -141,10 +157,12 @@
       "video": "media/dama_de_elche/video.mp4?v=1793130054",
       "poster": "media/dama_de_elche/poster.webp?v=1793130054",
       "duration": 32.3,
-      "size": 12436593
+      "size": 12436593,
+      "added": 1793106252
     },
     {
       "slug": "tartessos_el_reino_perdido",
+      "channel": "velatrama",
       "title": "El reino de plata que nadie encuentra 😱 Tartessos",
       "description": [
         "Tartessos fue un reino del sur de la península famoso por su plata. Heródoto habla de su rey Argantonio, pero su capital nunca ha aparecido. ¿Huelva, Cádiz o Doñana?",
@@ -189,10 +207,12 @@
       "video": "media/tartessos_el_reino_perdido/video.mp4?v=1793130129",
       "poster": "media/tartessos_el_reino_perdido/poster.webp?v=1793130129",
       "duration": 42.9,
-      "size": 16577280
+      "size": 16577280,
+      "added": 1793059950
     },
     {
       "slug": "acueducto_segovia",
+      "channel": "velatrama",
       "title": "Sin cemento y en pie 2.000 años 😱 El Acueducto de Segovia",
       "description": [
         "El Acueducto de Segovia lleva unos dos mil años en pie sin argamasa. ¿Ingeniería romana o un pacto con el diablo, como cuenta la leyenda?",
@@ -237,10 +257,12 @@
       "video": "media/acueducto_segovia/video.mp4?v=1793129997",
       "poster": "media/acueducto_segovia/poster.webp?v=1793129997",
       "duration": 41.9,
-      "size": 16237435
+      "size": 16237435,
+      "added": 1793054337
     },
     {
       "slug": "tesoro_guarrazar",
+      "channel": "velatrama",
       "title": "La corona de oro que desapareció para siempre 😱 Guarrazar",
       "description": [
         "En 1858 aparecieron en Guadamur (Toledo) las coronas votivas visigodas del tesoro de Guarrazar. En 1921 robaron la corona de Suintila y nunca se recuperó.",
@@ -285,10 +307,12 @@
       "video": "media/tesoro_guarrazar/video.mp4?v=1793130145",
       "poster": "media/tesoro_guarrazar/poster.webp?v=1793130145",
       "duration": 46.3,
-      "size": 17781260
+      "size": 17781260,
+      "added": 1793053910
     },
     {
       "slug": "las_medulas",
+      "channel": "velatrama",
       "title": "Los romanos destrozaron una montaña por oro 😱 Las Médulas",
       "description": [
         "Las Médulas, en León, son el resultado de la mayor mina de oro a cielo abierto del Imperio romano. Hundieron montañas enteras con agua.",
@@ -333,10 +357,12 @@
       "video": "media/las_medulas/video.mp4?v=1793130113",
       "poster": "media/las_medulas/poster.webp?v=1793130113",
       "duration": 41.4,
-      "size": 16035733
+      "size": 16035733,
+      "added": 1793053665
     },
     {
       "slug": "cueva_altamira",
+      "channel": "velatrama",
       "title": "Una niña descubrió esto en una cueva 😱 Altamira",
       "description": [
         "En 1879, María, de ocho años, vio unos bisontes pintados en el techo de la cueva de Altamira. Los expertos creyeron que era un fraude... y tardaron más de veinte años en rectificar.",
@@ -377,10 +403,12 @@
       "video": "media/cueva_altamira/video.mp4?v=1793130040",
       "poster": "media/cueva_altamira/poster.webp?v=1793130040",
       "duration": 48.9,
-      "size": 18862575
+      "size": 18862575,
+      "added": 1793053445
     },
     {
       "slug": "brujas_zugarramurdi",
+      "channel": "velatrama",
       "title": "La cueva donde se reunían las brujas 😱 Zugarramurdi",
       "description": [
         "En 1610 la Inquisición de Logroño juzgó a los vecinos de Zugarramurdi por brujería. Un inquisidor, Alonso de Salazar, no halló pruebas. ¿Qué pasó realmente?",
@@ -425,7 +453,8 @@
       "video": "media/brujas_zugarramurdi/video.mp4?v=1793130019",
       "poster": "media/brujas_zugarramurdi/poster.webp?v=1793130019",
       "duration": 42.4,
-      "size": 16390071
+      "size": 16390071,
+      "added": 1793053192
     }
   ]
 }
