@@ -180,22 +180,23 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
 .mvrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; font-size: 14px; }
 .mvrow select { flex: 1; min-width: 0; max-width: 60%; height: 38px; padding: 0 12px; border-radius: 19px; color: var(--text); font: inherit; font-size: 14px; outline: 0; }
 .mvrow select option { color: #111; }
+.plats { display: flex; flex-wrap: wrap; gap: 8px; }
+.plat { height: 36px; padding: 0 14px; border-radius: 18px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.plat[aria-pressed="true"] { color: #fff; background: linear-gradient(135deg, rgba(59,108,255,.7), rgba(255,77,157,.6)); border-color: rgba(255,255,255,.4); }
 @media (prefers-reduced-motion: reduce) { .bg i, .skel, .flash.show { animation: none; } }
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="fs-bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512"><stop offset="0" stop-color="#3b6cff"/><stop offset=".55" stop-color="#8b45ff"/><stop offset="1" stop-color="#ff4d9d"/></linearGradient>
-    <clipPath id="fs-frame"><rect x="127" y="57" width="200" height="356" rx="40"/></clipPath>
+    <linearGradient id="fs-bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512"><stop offset="0" stop-color="#10122c"/><stop offset=".6" stop-color="#2b1662"/><stop offset="1" stop-color="#601c7a"/></linearGradient>
     <symbol id="logo" viewBox="0 0 512 512">
       <rect width="512" height="512" rx="115" fill="url(#fs-bg)"/>
-      <rect x="127" y="57" width="200" height="356" rx="40" fill="#fff" fill-opacity=".16"/>
-      <g clip-path="url(#fs-frame)" fill="#fff"><circle cx="227" cy="207" r="54"/><ellipse cx="227" cy="365" rx="92" ry="72"/></g>
-      <rect x="131" y="61" width="192" height="348" rx="36" fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="8"/>
-      <circle cx="327" cy="397" r="67" fill="url(#fs-bg)"/>
-      <circle cx="327" cy="397" r="58" fill="#fff"/>
-      <path d="M311 369v56l48-28z" fill="#6f46ff" stroke="#6f46ff" stroke-width="10" stroke-linejoin="round"/>
+      <rect x="84" y="132" width="160" height="264" rx="34" fill="#3b6cff"/>
+      <rect x="268" y="132" width="160" height="264" rx="34" fill="#ff4d9d"/>
+      <rect x="166" y="64" width="180" height="384" rx="40" fill="#fff"/>
+      <path d="M234 212v88l72-44z" fill="#6f46ff" stroke="#6f46ff" stroke-width="14" stroke-linejoin="round"/>
+      <circle cx="224" cy="400" r="8" fill="#8b45ff"/><circle cx="256" cy="400" r="8" fill="#8b45ff"/><circle cx="288" cy="400" r="8" fill="#8b45ff"/>
     </symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
     <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
@@ -328,7 +329,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     tab: 'panel', channel: String(store.get('channel', '')), tag: null, q: '',
     sort: SORTS.includes(savedSort) ? savedSort : 'recent', list: !!store.get('list', false),
     favs: new Set(store.get('favs', [])), seen: store.get('seen', {}) || {},
-    mine: [].concat(store.get('mine', [])), assign: store.get('assign', {}) || {},
+    mine: [].concat(store.get('mine', [])), assign: store.get('assign', {}) || {}, pub: store.get('pub', {}) || {},
     muted: !!store.get('muted', false), rate: RATES.includes(savedRate) ? savedRate : 1,
   };
   const el = {
@@ -680,6 +681,8 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
 
     const cont = state.items.filter(isResumable);
     if (cont.length) p.appendChild(rail('Continuar viendo', cont));
+    const pend = state.items.filter((it) => !(state.pub[it.slug] || []).length);
+    if (pend.length) p.appendChild(rail('Pendientes de publicar (' + pend.length + ')', pend));
     p.appendChild(rail('Recientes', [...state.items].sort((a, b) => b.added - a.added).slice(0, 12)));
   }
 
@@ -921,6 +924,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     act('copy', 'Título', () => copyText(it.title, 'Título copiado'));
     act('copy', 'Descripción', () => copyText(it.description.join('\n\n'), 'Descripción copiada'));
     if (it.tags.length) act('copy', 'Etiquetas', () => copyText(it.tags.join(' '), 'Etiquetas copiadas'));
+    act('copy', 'Todo', () => copyText([it.title, it.description.join('\n\n'), it.tags.join(' ')].filter(Boolean).join('\n\n'), 'Paquete copiado'));
     if (navigator.share) {
       act('share', 'Compartir', () => {
         const url = new URL(it.video, location.href).href;
@@ -934,6 +938,22 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     dl.appendChild(document.createTextNode('Descargar'));
     acts.appendChild(dl);
     el.sheet.appendChild(acts);
+    const done = new Set(state.pub[it.slug] || []);
+    el.sheet.appendChild(mk('h4', '', 'Publicado en'));
+    const plats = mk('div', 'plats');
+    ['YouTube', 'TikTok', 'Instagram'].forEach((p) => {
+      const b = mk('button', 'plat glass', p);
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(done.has(p)));
+      b.addEventListener('click', () => {
+        if (done.has(p)) done.delete(p); else done.add(p);
+        state.pub[it.slug] = [...done];
+        store.set('pub', state.pub);
+        b.setAttribute('aria-pressed', String(done.has(p)));
+      });
+      plats.appendChild(b);
+    });
+    el.sheet.appendChild(plats);
     if (state.channels.length > 1) {
       const row = mk('label', 'mvrow');
       row.appendChild(mk('span', '', 'Canal'));

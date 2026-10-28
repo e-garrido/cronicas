@@ -1,6 +1,6 @@
 /* Service worker de FacelessStudio: guarda la interfaz y las imágenes para abrir la app al instante.
    Los vídeos no se guardan: iOS necesita peticiones Range y se sirven directos desde GitHub Pages. */
-const CACHE = 'facelessstudio-v2';
+const CACHE = 'facelessstudio-v3';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/apple-touch-icon.png', 'icons/logo.svg'];
 
 self.addEventListener('install', (event) => {

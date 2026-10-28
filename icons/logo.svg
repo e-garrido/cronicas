@@ -2,20 +2,19 @@
   <title>FacelessStudio</title>
   <defs>
     <linearGradient id="fs-bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
-      <stop offset="0" stop-color="#3b6cff"/>
-      <stop offset=".55" stop-color="#8b45ff"/>
-      <stop offset="1" stop-color="#ff4d9d"/>
+      <stop offset="0" stop-color="#10122c"/>
+      <stop offset=".6" stop-color="#2b1662"/>
+      <stop offset="1" stop-color="#601c7a"/>
     </linearGradient>
-    <clipPath id="fs-frame"><rect x="127" y="57" width="200" height="356" rx="40"/></clipPath>
+    <filter id="fs-sh" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
   </defs>
   <rect width="512" height="512" rx="115" fill="url(#fs-bg)"/>
-  <rect x="127" y="57" width="200" height="356" rx="40" fill="#fff" fill-opacity=".16"/>
-  <g clip-path="url(#fs-frame)" fill="#fff">
-    <circle cx="227" cy="207" r="54"/>
-    <ellipse cx="227" cy="365" rx="92" ry="72"/>
-  </g>
-  <rect x="131" y="61" width="192" height="348" rx="36" fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="8"/>
-  <circle cx="327" cy="397" r="67" fill="url(#fs-bg)"/>
-  <circle cx="327" cy="397" r="58" fill="#fff"/>
-  <path d="M311 369v56l48-28z" fill="#6f46ff" stroke="#6f46ff" stroke-width="10" stroke-linejoin="round"/>
+  <rect x="84" y="132" width="160" height="264" rx="34" fill="#3b6cff"/>
+  <rect x="268" y="132" width="160" height="264" rx="34" fill="#ff4d9d"/>
+  <rect x="166" y="76" width="180" height="384" rx="40" fill="#000" fill-opacity=".43" filter="url(#fs-sh)"/>
+  <rect x="166" y="64" width="180" height="384" rx="40" fill="#fff"/>
+  <path d="M234 212v88l72-44z" fill="#6f46ff" stroke="#6f46ff" stroke-width="14" stroke-linejoin="round"/>
+  <circle cx="224" cy="400" r="8" fill="#8b45ff"/>
+  <circle cx="256" cy="400" r="8" fill="#8b45ff"/>
+  <circle cx="288" cy="400" r="8" fill="#8b45ff"/>
 </svg>
