@@ -1,6 +1,6 @@
 {
   "app": "FacelessStudio",
-  "generated": "2026-10-28T16:27:19+00:00",
+  "generated": "2026-10-28T19:23:57+00:00",
   "channels": [
     {
       "id": "velatrama",
@@ -10,9 +10,46 @@
       "color": "#e8a54b",
       "logo": "media/canales/velatrama/logo.webp?v=1793135716",
       "banner": "media/canales/velatrama/banner.webp?v=1793135716"
+    },
+    {
+      "id": "pepeyjuanito",
+      "name": "pepeyjuanito",
+      "handle": "",
+      "description": "Humor con niños.",
+      "color": "#4bb3e8",
+      "logo": "media/canales/pepeyjuanito/logo.webp?v=1793215409",
+      "banner": "media/canales/pepeyjuanito/banner.webp?v=1793215409"
     }
   ],
   "videos": [
+    {
+      "slug": "pepeyjuanito_1",
+      "channel": "pepeyjuanito",
+      "title": "Pepeyjuanito 1",
+      "description": [],
+      "tags": [],
+      "credits": [],
+      "video": "media/pepeyjuanito_1/video.mp4?v=1793215421",
+      "poster": "media/pepeyjuanito_1/poster.webp?v=1793215421",
+      "cover": "media/pepeyjuanito_1/cover.jpg?v=1793215422",
+      "duration": 15.0,
+      "size": 5833549,
+      "added": 1793215383
+    },
+    {
+      "slug": "pepeyjuanito_2",
+      "channel": "pepeyjuanito",
+      "title": "Pepeyjuanito 2",
+      "description": [],
+      "tags": [],
+      "credits": [],
+      "video": "media/pepeyjuanito_2/video.mp4?v=1793215436",
+      "poster": "media/pepeyjuanito_2/poster.webp?v=1793215436",
+      "cover": "media/pepeyjuanito_2/cover.jpg?v=1793215436",
+      "duration": 15.0,
+      "size": 5735387,
+      "added": 1793215383
+    },
     {
       "slug": "el_santo_caliz_de_valencia",
       "channel": "velatrama",
