@@ -447,7 +447,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
           slug: String(x.slug), title: String(x.title || x.slug), video: String(x.video),
           channel: known.has(state.assign[String(x.slug)]) ? state.assign[String(x.slug)]
             : known.has(String(x.channel)) ? String(x.channel) : first,
-          poster: x.poster ? String(x.poster) : '', duration: Number(x.duration) || 0,
+          poster: x.poster ? String(x.poster) : '', cover: x.cover ? String(x.cover) : '', duration: Number(x.duration) || 0,
           size: Number(x.size) || 0, added: Number(x.added) || 0,
           description: Array.isArray(x.description) ? x.description.map(String) : [],
           tags: Array.isArray(x.tags) ? x.tags.map(String) : [],
@@ -937,6 +937,14 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     dl.appendChild(svgIcon('save'));
     dl.appendChild(document.createTextNode('Descargar'));
     acts.appendChild(dl);
+    if (it.cover) {
+      const cv = mk('a', 'act glass');
+      cv.href = it.cover;
+      cv.download = it.slug + '_portada.jpg';
+      cv.appendChild(svgIcon('save'));
+      cv.appendChild(document.createTextNode('Portada'));
+      acts.appendChild(cv);
+    }
     el.sheet.appendChild(acts);
     const done = new Set(state.pub[it.slug] || []);
     el.sheet.appendChild(mk('h4', '', 'Publicado en'));

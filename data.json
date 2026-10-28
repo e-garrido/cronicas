@@ -1,6 +1,6 @@
 {
   "app": "FacelessStudio",
-  "generated": "2026-10-27T21:15:18+00:00",
+  "generated": "2026-10-28T16:27:19+00:00",
   "channels": [
     {
       "id": "velatrama",
@@ -60,6 +60,7 @@
       ],
       "video": "media/el_santo_caliz_de_valencia/video.mp4?v=1793130095",
       "poster": "media/el_santo_caliz_de_valencia/poster.webp?v=1793130095",
+      "cover": "media/el_santo_caliz_de_valencia/cover.jpg?v=1793204838",
       "duration": 46.6,
       "size": 18060737,
       "added": 1793123519
@@ -106,6 +107,7 @@
       ],
       "video": "media/el_dolmen_de_menga/video.mp4?v=1793130077",
       "poster": "media/el_dolmen_de_menga/poster.webp?v=1793130077",
+      "cover": "media/el_dolmen_de_menga/cover.jpg?v=1793204838",
       "duration": 55.1,
       "size": 21007933,
       "added": 1793122050
@@ -156,6 +158,7 @@
       ],
       "video": "media/dama_de_elche/video.mp4?v=1793130054",
       "poster": "media/dama_de_elche/poster.webp?v=1793130054",
+      "cover": "media/dama_de_elche/cover.jpg?v=1793204838",
       "duration": 32.3,
       "size": 12436593,
       "added": 1793106252
@@ -206,6 +209,7 @@
       ],
       "video": "media/tartessos_el_reino_perdido/video.mp4?v=1793130129",
       "poster": "media/tartessos_el_reino_perdido/poster.webp?v=1793130129",
+      "cover": "media/tartessos_el_reino_perdido/cover.jpg?v=1793204839",
       "duration": 42.9,
       "size": 16577280,
       "added": 1793059950
@@ -256,6 +260,7 @@
       ],
       "video": "media/acueducto_segovia/video.mp4?v=1793129997",
       "poster": "media/acueducto_segovia/poster.webp?v=1793129997",
+      "cover": "media/acueducto_segovia/cover.jpg?v=1793204837",
       "duration": 41.9,
       "size": 16237435,
       "added": 1793054337
@@ -306,6 +311,7 @@
       ],
       "video": "media/tesoro_guarrazar/video.mp4?v=1793130145",
       "poster": "media/tesoro_guarrazar/poster.webp?v=1793130145",
+      "cover": "media/tesoro_guarrazar/cover.jpg?v=1793204839",
       "duration": 46.3,
       "size": 17781260,
       "added": 1793053910
@@ -356,6 +362,7 @@
       ],
       "video": "media/las_medulas/video.mp4?v=1793130113",
       "poster": "media/las_medulas/poster.webp?v=1793130113",
+      "cover": "media/las_medulas/cover.jpg?v=1793204838",
       "duration": 41.4,
       "size": 16035733,
       "added": 1793053665
@@ -402,6 +409,7 @@
       ],
       "video": "media/cueva_altamira/video.mp4?v=1793130040",
       "poster": "media/cueva_altamira/poster.webp?v=1793130040",
+      "cover": "media/cueva_altamira/cover.jpg?v=1793204837",
       "duration": 48.9,
       "size": 18862575,
       "added": 1793053445
@@ -452,6 +460,7 @@
       ],
       "video": "media/brujas_zugarramurdi/video.mp4?v=1793130019",
       "poster": "media/brujas_zugarramurdi/poster.webp?v=1793130019",
+      "cover": "media/brujas_zugarramurdi/cover.jpg?v=1793204837",
       "duration": 42.4,
       "size": 16390071,
       "added": 1793053192
