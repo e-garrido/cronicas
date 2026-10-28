@@ -152,6 +152,34 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
 .toast { position: absolute; left: 50%; top: calc(var(--sat) + 70px); transform: translateX(-50%); max-width: calc(100% - 40px); padding: 10px 16px; border-radius: 18px; font-size: 14px; text-align: center; z-index: 5; }
 .toast.app { position: fixed; top: auto; bottom: calc(var(--sab) + 90px); z-index: 60; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.blockhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.addch { display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px 0 10px; border-radius: 18px; font-size: 14px; font-weight: 700; color: #fff; background: linear-gradient(135deg, rgba(59,108,255,.7), rgba(255,77,157,.6)); border: 1px solid rgba(255,255,255,.3); }
+.addch svg { width: 20px; height: 20px; }
+.addch:active { transform: scale(.96); }
+.overlay { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; padding: calc(var(--sat) + 16px) 14px calc(var(--sab) + 16px); background: rgba(0,0,0,.55); }
+.dlg { width: min(100%, 460px); max-height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: 20px; border-radius: 28px; background: rgba(22,24,36,.95); }
+.dlg h3 { margin: 0 0 14px; font-size: 20px; }
+.dlg h4 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.fld { display: block; margin-bottom: 12px; }
+.fld > span { display: block; margin-bottom: 4px; font-size: 13px; color: var(--muted); }
+.inp { width: 100%; height: 42px; padding: 0 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: var(--text); font: inherit; font-size: 16px; outline: 0; }
+.inp:focus { border-color: var(--accent); }
+.fld input[type=file] { width: 100%; font-size: 14px; color: var(--muted); }
+.fld input[type=color] { width: 56px; height: 38px; padding: 2px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: none; }
+.err { min-height: 1.2em; margin: 0 0 8px; font-size: 13px; color: #ff9aa8; }
+.dlgrow { display: flex; gap: 10px; }
+.btn { flex: 1; height: 44px; border-radius: 22px; font-weight: 700; }
+.btn.primary { color: #fff; background: linear-gradient(135deg, #3b6cff, #ff4d9d); }
+.btn:disabled { opacity: .5; }
+.mine { margin-top: 18px; }
+.mrow { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.08); font-size: 14px; }
+.mrow .dot { width: 9px; height: 9px; flex: none; border-radius: 50%; background: var(--c); }
+.mrow span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mrow .del { flex: none; height: 32px; padding: 0 12px; border-radius: 16px; font-size: 13px; font-weight: 600; color: #ff9aa8; border: 1px solid rgba(255,154,168,.4); }
+.hint { margin: 14px 0 0; font-size: 12px; color: var(--muted); }
+.mvrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; font-size: 14px; }
+.mvrow select { flex: 1; min-width: 0; max-width: 60%; height: 38px; padding: 0 12px; border-radius: 19px; color: var(--text); font: inherit; font-size: 14px; outline: 0; }
+.mvrow select option { color: #111; }
 @media (prefers-reduced-motion: reduce) { .bg i, .skel, .flash.show { animation: none; } }
 </style>
 </head>
@@ -186,6 +214,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     <symbol id="i-copy" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></symbol>
     <symbol id="i-share" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></symbol>
     <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></symbol>
   </defs>
 </svg>
 
@@ -230,6 +259,24 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
   <button class="tab" type="button" data-tab="favs"><svg class="i"><use href="#i-heart"/></svg>Favoritos</button>
 </nav>
 <div class="toast glass app" id="appToast" hidden role="status"></div>
+
+<div class="overlay" id="chDlg" hidden>
+  <form class="dlg glass" id="chForm" role="dialog" aria-modal="true" aria-labelledby="chTitle" novalidate>
+    <h3 id="chTitle">Añadir canal</h3>
+    <label class="fld"><span>Nombre</span><input class="inp" id="chName" type="text" maxlength="40" required autocomplete="off"></label>
+    <label class="fld"><span>Descripción (opcional)</span><input class="inp" id="chDesc" type="text" maxlength="120" autocomplete="off"></label>
+    <label class="fld"><span>Color</span><input id="chColor" type="color" value="#8b9dff"></label>
+    <label class="fld"><span>Logo (opcional)</span><input id="chLogo" type="file" accept="image/*"></label>
+    <label class="fld"><span>Banner (opcional)</span><input id="chBanner" type="file" accept="image/*"></label>
+    <p class="err" id="chErr" role="alert"></p>
+    <div class="dlgrow">
+      <button class="btn glass" id="chCancel" type="button">Cancelar</button>
+      <button class="btn primary" id="chSave" type="submit">Guardar</button>
+    </div>
+    <div class="mine" id="chMine" hidden></div>
+    <p class="hint">Los canales nuevos se guardan solo en este dispositivo. Para tenerlos en todos, añádelos en videos/canales.json.</p>
+  </form>
+</div>
 
 <section id="player" class="player" hidden role="dialog" aria-modal="true" aria-label="Reproductor">
   <div class="stage" id="stage">
@@ -281,6 +328,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     tab: 'panel', channel: String(store.get('channel', '')), tag: null, q: '',
     sort: SORTS.includes(savedSort) ? savedSort : 'recent', list: !!store.get('list', false),
     favs: new Set(store.get('favs', [])), seen: store.get('seen', {}) || {},
+    mine: [].concat(store.get('mine', [])), assign: store.get('assign', {}) || {},
     muted: !!store.get('muted', false), rate: RATES.includes(savedRate) ? savedRate : 1,
   };
   const el = {
@@ -289,7 +337,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     player: $('#player'), stage: $('#stage'), v: $('#v'), flash: $('#flash'), toast: $('#toast'),
     pt: $('#pt'), who: $('#who'), pos: $('#pos'), tc: $('#tc'), td: $('#td'), seek: $('#seek'), rate: $('#rate'),
     prev: $('#prev'), next: $('#next'), play: $('#play'), mute: $('#mute'), fav: $('#fav'), infoBtn: $('#infoBtn'),
-    close: $('#close'), sheet: $('#sheet'),
+    close: $('#close'), sheet: $('#sheet'), dlg: $('#chDlg'), form: $('#chForm'),
   };
   const v = el.v;
 
@@ -381,13 +429,23 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
       if (!state.channels.length) {
         state.channels = [{ id: 'default', name: String(data.channel || 'Mis vídeos'), handle: '', description: '', color: DEF_COLOR, logo: '', banner: '' }];
       }
+      const serverIds = new Set(state.channels.map((c) => c.id));
+      state.mine = state.mine.filter((c) => c && c.id && c.name);
+      state.mine.forEach((c) => {
+        if (serverIds.has(c.id)) return;
+        state.channels.push({
+          id: String(c.id), name: String(c.name), handle: '', description: String(c.description || ''),
+          color: okColor(c.color), logo: String(c.logo || ''), banner: String(c.banner || ''), mine: true,
+        });
+      });
       const known = new Set(state.channels.map((c) => c.id));
       const first = state.channels[0].id;
       const list = Array.isArray(data.videos) ? data.videos : [];
       state.items = list.filter((x) => x && x.slug && x.video).map((x) => {
         const it = {
           slug: String(x.slug), title: String(x.title || x.slug), video: String(x.video),
-          channel: known.has(String(x.channel)) ? String(x.channel) : first,
+          channel: known.has(state.assign[String(x.slug)]) ? state.assign[String(x.slug)]
+            : known.has(String(x.channel)) ? String(x.channel) : first,
           poster: x.poster ? String(x.poster) : '', duration: Number(x.duration) || 0,
           size: Number(x.size) || 0, added: Number(x.added) || 0,
           description: Array.isArray(x.description) ? x.description.map(String) : [],
@@ -608,7 +666,15 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     p.appendChild(stats);
 
     const head = mk('div', 'block');
-    head.appendChild(mk('h2', '', state.channels.length === 1 ? 'Canal' : 'Canales'));
+    const hrow = mk('div', 'blockhead');
+    hrow.appendChild(mk('h2', '', state.channels.length === 1 ? 'Canal' : 'Canales'));
+    const add = mk('button', 'addch');
+    add.type = 'button';
+    add.appendChild(svgIcon('plus'));
+    add.appendChild(document.createTextNode('Añadir canal'));
+    add.addEventListener('click', openChannelDialog);
+    hrow.appendChild(add);
+    head.appendChild(hrow);
     state.channels.forEach((c) => head.appendChild(channelCard(c)));
     p.appendChild(head);
 
@@ -616,6 +682,107 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     if (cont.length) p.appendChild(rail('Continuar viendo', cont));
     p.appendChild(rail('Recientes', [...state.items].sort((a, b) => b.added - a.added).slice(0, 12)));
   }
+
+  /* ---------- Canales propios (se guardan en este dispositivo) ---------- */
+  function fitImage(file, w, h, bg) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const im = new Image();
+      im.onload = () => {
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        const ctx = c.getContext('2d');
+        const k = Math.max(w / im.naturalWidth, h / im.naturalHeight);
+        const dw = im.naturalWidth * k;
+        const dh = im.naturalHeight * k;
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(im, (w - dw) / 2, (h - dh) / 2, dw, dh);
+        URL.revokeObjectURL(url);
+        resolve(c.toDataURL('image/jpeg', 0.85));
+      };
+      im.onerror = () => { URL.revokeObjectURL(url); reject(new Error('imagen')); };
+      im.src = url;
+    });
+  }
+  function channelId(name) {
+    const base = 'u-' + (norm(name).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'canal');
+    let id = base;
+    let n = 2;
+    while (state.channels.some((c) => c.id === id)) { id = base + '-' + n; n += 1; }
+    return id;
+  }
+  function renderMine() {
+    const box = $('#chMine');
+    box.replaceChildren();
+    box.hidden = !state.mine.length;
+    if (!state.mine.length) return;
+    box.appendChild(mk('h4', '', 'Creados en este dispositivo'));
+    state.mine.forEach((c) => {
+      const r = mk('div', 'mrow');
+      r.style.setProperty('--c', okColor(c.color));
+      r.appendChild(mk('i', 'dot'));
+      r.appendChild(mk('span', '', c.name));
+      const del = mk('button', 'del', 'Eliminar');
+      del.type = 'button';
+      del.setAttribute('aria-label', 'Eliminar el canal ' + c.name);
+      del.addEventListener('click', () => {
+        if (confirm('¿Eliminar el canal "' + c.name + '"? Sus vídeos vuelven a su canal original.')) removeMine(c.id);
+      });
+      r.appendChild(del);
+      box.appendChild(r);
+    });
+  }
+  function removeMine(id) {
+    state.mine = state.mine.filter((c) => c.id !== id);
+    store.set('mine', state.mine);
+    Object.keys(state.assign).forEach((k) => { if (state.assign[k] === id) delete state.assign[k]; });
+    store.set('assign', state.assign);
+    load().then(() => { renderMine(); appToast('Canal eliminado'); });
+  }
+  function openChannelDialog() {
+    el.form.reset();
+    $('#chErr').textContent = '';
+    renderMine();
+    el.dlg.hidden = false;
+    $('#chName').focus();
+  }
+  function closeChannelDialog() { el.dlg.hidden = true; }
+
+  el.form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const err = $('#chErr');
+    const save = $('#chSave');
+    const name = $('#chName').value.trim();
+    err.textContent = '';
+    if (!name) { err.textContent = 'Escribe un nombre.'; return; }
+    if (state.channels.some((c) => norm(c.name) === norm(name))) { err.textContent = 'Ya existe un canal con ese nombre.'; return; }
+    save.disabled = true;
+    try {
+      const color = okColor($('#chColor').value);
+      const lf = $('#chLogo').files[0];
+      const bf = $('#chBanner').files[0];
+      const ch = {
+        id: channelId(name), name, description: $('#chDesc').value.trim(), color,
+        logo: lf ? await fitImage(lf, 256, 256, color) : '',
+        banner: bf ? await fitImage(bf, 1200, 343, color) : '',
+      };
+      state.mine.push(ch);
+      store.set('mine', state.mine);
+      if ([].concat(store.get('mine', [])).length !== state.mine.length) { state.mine.pop(); throw new Error('espacio'); }
+      state.channels.push({ ...ch, handle: '', mine: true });
+      closeChannelDialog();
+      render();
+      appToast('Canal creado');
+    } catch (x) {
+      err.textContent = x && x.message === 'espacio' ? 'No hay espacio para guardarlo. Prueba con imágenes más pequeñas.' : 'No se pudo leer la imagen.';
+    } finally {
+      save.disabled = false;
+    }
+  });
+  $('#chCancel').addEventListener('click', closeChannelDialog);
+  el.dlg.addEventListener('click', (e) => { if (e.target === el.dlg) closeChannelDialog(); });
+  el.dlg.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeChannelDialog(); });
 
   /* ---------- Reproductor ---------- */
   let scrubbing = false;
@@ -767,6 +934,24 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border: 0; bord
     dl.appendChild(document.createTextNode('Descargar'));
     acts.appendChild(dl);
     el.sheet.appendChild(acts);
+    if (state.channels.length > 1) {
+      const row = mk('label', 'mvrow');
+      row.appendChild(mk('span', '', 'Canal'));
+      const sel = mk('select', 'glass');
+      state.channels.forEach((c) => { const o = mk('option', '', c.name); o.value = c.id; sel.appendChild(o); });
+      sel.value = it.channel;
+      sel.addEventListener('change', () => {
+        it.channel = sel.value;
+        state.assign[it.slug] = sel.value;
+        store.set('assign', state.assign);
+        const c = chan(it.channel);
+        el.who.style.setProperty('--c', c.color);
+        el.who.replaceChildren(mk('i', 'dot'), mk('span', '', c.name));
+        toast('Movido a ' + c.name);
+      });
+      row.appendChild(sel);
+      el.sheet.appendChild(row);
+    }
     it.description.forEach((t) => el.sheet.appendChild(mk('p', '', t)));
     if (it.tags.length) {
       el.sheet.appendChild(mk('h4', '', 'Etiquetas'));
